@@ -11,8 +11,10 @@ services:
             - esdata1:/usr/share/elasticsearch/data
 
     web:
-        image: adham/foodtrucks-web
+        build: .
         command: python3 app.py
+        environment: 
+            - DEBUG=True
         container_name: foodtrucks-web
         depends_on:
             - es
